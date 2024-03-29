@@ -2,18 +2,22 @@
 title = 'Hello World'
 date = 2024-03-25T11:21:11+05:30
 draft = false
+tags = ['First post', 'journal']
 +++
 
 ### What is this?
+
 This is a *blog* I created for journaling things, happenings,
 knowledge, etc. Basically this will be repository of things.
 
 ### Who am I?
+
 I am Ashish Nambiar. I am a Mobile App Developer by profession. I specialize in
 [*Flutter*](https://flutter.dev), But also familiar with a little bit of backend
 in [*GO*](go.dev) and *JS*.
 
 ### What next?
+
 I want to learn a couple of things like:
 - game development
     - App based games
@@ -54,4 +58,4 @@ stick with a project until it is done. These are not very big projects, just
 some things that interest me. 
 
 This is just a start. I will try to keep this as updated as possible, at least
-once a weak.
+once a week.

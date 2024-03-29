@@ -2,6 +2,7 @@
 title = 'Setup for this Blog'
 date = 2024-03-25T20:55:05+05:30
 draft = false
+tags = ['journal']
 +++
 
 ## Setting up this blog using [`HUGO`](https://gohugo.io/) 
