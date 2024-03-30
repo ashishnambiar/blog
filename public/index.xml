@@ -2,24 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Ashish Nambiar&#39;s Blog</title>
-    <link>//localhost:1313/</link>
+    <link>/</link>
     <description>Recent content on Ashish Nambiar&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 25 Mar 2024 20:55:05 +0530</lastBuildDate>
-    <atom:link href="//localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 30 Mar 2024 15:15:02 +0530</lastBuildDate>
+    <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Choosing Hosting Service</title>
+      <link>/posts/choosing-hosting-service/</link>
+      <pubDate>Sat, 30 Mar 2024 15:15:02 +0530</pubDate>
+      <guid>/posts/choosing-hosting-service/</guid>
+      <description>Finalizing choice for hosting service I finally decided to use Digital Ocean&amp;rsquo;s &amp;ldquo;App Platform&amp;rdquo; to host this blog site. So this is currently available on both github pages and DO.&#xA;This is just a small update to keep you in The Loop. Anyways, I feel like I got this out of my chest so now I can start writing some more meaningful blogs that might be more relevant to coding and stuff.</description>
+    </item>
     <item>
       <title>Setup for this Blog</title>
-      <link>//localhost:1313/posts/hugo-blog-setup/</link>
+      <link>/posts/hugo-blog-setup/</link>
       <pubDate>Mon, 25 Mar 2024 20:55:05 +0530</pubDate>
-      <guid>//localhost:1313/posts/hugo-blog-setup/</guid>
-      <description>Setting up this blog using HUGO Creating this blog was relatively easy, because there are not many dependencies with hugo. The main problems I face these days is just node. I don&amp;rsquo;t like node. Anyways, there were not many steps involved in creating this blog.&#xA;From my perspective the steps were:&#xA;Install hugo. Go through the &amp;ldquo;Getting Started&amp;rdquo; guide. Check the tutorial for hosting hugo sites on Linode Object Store. Login to Linode to realize that my account has been blocked due to &amp;ldquo;Fraudulent Activity&amp;rdquo;.</description>
+      <guid>/posts/hugo-blog-setup/</guid>
+      <description>edit: this site is also available on Digital Ocean&#xA;Setting up this blog using HUGO Creating this blog was relatively easy, because there are not many dependencies with hugo. The main problems I face these days is just node. I don&amp;rsquo;t like node. Anyways, there were not many steps involved in creating this blog.&#xA;From my perspective the steps were:&#xA;Install hugo. Go through the &amp;ldquo;Getting Started&amp;rdquo; guide. Check the tutorial for hosting hugo sites on Linode Object Store.</description>
     </item>
     <item>
       <title>Hello World</title>
-      <link>//localhost:1313/posts/my-first-post/</link>
+      <link>/posts/my-first-post/</link>
       <pubDate>Mon, 25 Mar 2024 11:21:11 +0530</pubDate>
-      <guid>//localhost:1313/posts/my-first-post/</guid>
+      <guid>/posts/my-first-post/</guid>
       <description>What is this? This is a blog I created for journaling things, happenings, knowledge, etc. Basically this will be repository of things.&#xA;Who am I? I am Ashish Nambiar. I am a Mobile App Developer by profession. I specialize in Flutter, But also familiar with a little bit of backend in GO and JS.&#xA;What next? I want to learn a couple of things like:&#xA;game development App based games Love2D TUI games A universal game(A concept I thought of, which probably already exists but don&amp;rsquo;t know the name of) backend authentication hosting databases automation python build systems website devlopment some CSS canvas create custom theme for hugo(and replace this one) devops writing a small book using groff coding challenges advent of code data structures Flutter TDD working with RenderObjects and custom widgets CustomPaint =&amp;gt; an interesting reference I know these are too many topics for a single person to learn in a life time, but I want to try each of these at least once and familiarize with the things that can help me with my development skills in future.</description>
     </item>
   </channel>

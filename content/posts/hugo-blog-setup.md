@@ -5,6 +5,9 @@ draft = false
 tags = ['journal']
 +++
 
+*edit: this site is also available on [Digital
+Ocean](https://blog-evibj.ondigitalocean.app/)*
+
 ## Setting up this blog using [`HUGO`](https://gohugo.io/) 
 
 Creating this blog was relatively easy, because there are not many dependencies
