@@ -3,18 +3,24 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>/</loc>
-    <lastmod>2024-03-30T15:15:02+05:30</lastmod>
-  </url><url>
-    <loc>/posts/choosing-hosting-service/</loc>
-    <lastmod>2024-03-30T15:15:02+05:30</lastmod>
+    <lastmod>2024-03-31T14:25:24+05:30</lastmod>
   </url><url>
     <loc>/tags/journal/</loc>
-    <lastmod>2024-03-30T15:15:02+05:30</lastmod>
+    <lastmod>2024-03-31T14:25:24+05:30</lastmod>
+  </url><url>
+    <loc>/posts/selfhosted-vpn-using-linode-openvpn/</loc>
+    <lastmod>2024-03-31T14:25:24+05:30</lastmod>
   </url><url>
     <loc>/posts/</loc>
-    <lastmod>2024-03-30T15:15:02+05:30</lastmod>
+    <lastmod>2024-03-31T14:25:24+05:30</lastmod>
   </url><url>
     <loc>/tags/</loc>
+    <lastmod>2024-03-31T14:25:24+05:30</lastmod>
+  </url><url>
+    <loc>/tags/vpn/</loc>
+    <lastmod>2024-03-31T14:25:24+05:30</lastmod>
+  </url><url>
+    <loc>/posts/choosing-hosting-service/</loc>
     <lastmod>2024-03-30T15:15:02+05:30</lastmod>
   </url><url>
     <loc>/posts/hugo-blog-setup/</loc>

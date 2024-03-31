@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Vpn on Ashish Nambiar&#39;s Blog</title>
+    <link>/tags/vpn/</link>
+    <description>Recent content in Vpn on Ashish Nambiar&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 31 Mar 2024 14:25:24 +0530</lastBuildDate>
+    <atom:link href="/tags/vpn/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>OpenVPN &#43; Linode = Selfhosted VPN</title>
+      <link>/posts/selfhosted-vpn-using-linode-openvpn/</link>
+      <pubDate>Sun, 31 Mar 2024 14:25:24 +0530</pubDate>
+      <guid>/posts/selfhosted-vpn-using-linode-openvpn/</guid>
+      <description>Creating a selfhosted VPN is actually quite easy, at least with linode (not sponsored). I will try to summarize how I selfhosted a VPN, and the problems I faced.&#xA;Server Setup I used a Linode Video to get started. I will go skim through the steps regardless.&#xA;click on &amp;ldquo;Create a Linode&amp;rdquo; (or something, I forgot) From the marketplace select OpenVPN Fill in necessary fields Choose the OS and type of server you want, I chose a Nanode(the cheapest one).</description>
+    </item>
+  </channel>
+</rss>

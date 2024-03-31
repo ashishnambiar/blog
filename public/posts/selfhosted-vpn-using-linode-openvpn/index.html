@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>OpenVPN &#43; Linode = Selfhosted VPN | Ashish Nambiar&#39;s Blog</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="Creating a selfhosted VPN is actually quite easy, at least with linode (not sponsored). I will try to summarize how I selfhosted a VPN, and the problems I faced.
+Server Setup I used a Linode Video to get started. I will go skim through the steps regardless.
+click on &ldquo;Create a Linode&rdquo; (or something, I forgot) From the marketplace select OpenVPN Fill in necessary fields Choose the OS and type of server you want, I chose a Nanode(the cheapest one).">
+    <meta name="generator" content="Hugo 0.124.1">
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+    
+
+    
+      
+
+    
+
+    
+
+    
+      <link rel="canonical" href="/posts/selfhosted-vpn-using-linode-openvpn/">
+    
+
+    <meta property="og:title" content="OpenVPN &#43; Linode = Selfhosted VPN" />
+<meta property="og:description" content="Creating a selfhosted VPN is actually quite easy, at least with linode (not sponsored). I will try to summarize how I selfhosted a VPN, and the problems I faced.
+Server Setup I used a Linode Video to get started. I will go skim through the steps regardless.
+click on &ldquo;Create a Linode&rdquo; (or something, I forgot) From the marketplace select OpenVPN Fill in necessary fields Choose the OS and type of server you want, I chose a Nanode(the cheapest one)." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/posts/selfhosted-vpn-using-linode-openvpn/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-03-31T14:25:24+05:30" />
+<meta property="article:modified_time" content="2024-03-31T14:25:24+05:30" />
+<meta itemprop="name" content="OpenVPN &#43; Linode = Selfhosted VPN">
+<meta itemprop="description" content="Creating a selfhosted VPN is actually quite easy, at least with linode (not sponsored). I will try to summarize how I selfhosted a VPN, and the problems I faced.
+Server Setup I used a Linode Video to get started. I will go skim through the steps regardless.
+click on &ldquo;Create a Linode&rdquo; (or something, I forgot) From the marketplace select OpenVPN Fill in necessary fields Choose the OS and type of server you want, I chose a Nanode(the cheapest one)."><meta itemprop="datePublished" content="2024-03-31T14:25:24+05:30" />
+<meta itemprop="dateModified" content="2024-03-31T14:25:24+05:30" />
+<meta itemprop="wordCount" content="696">
+<meta itemprop="keywords" content="journal,vpn," /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="OpenVPN &#43; Linode = Selfhosted VPN"/>
+<meta name="twitter:description" content="Creating a selfhosted VPN is actually quite easy, at least with linode (not sponsored). I will try to summarize how I selfhosted a VPN, and the problems I faced.
+Server Setup I used a Linode Video to get started. I will go skim through the steps regardless.
+click on &ldquo;Create a Linode&rdquo; (or something, I forgot) From the marketplace select OpenVPN Fill in necessary fields Choose the OS and type of server you want, I chose a Nanode(the cheapest one)."/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        Ashish Nambiar&#39;s Blog
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+<div class="ananke-socials">
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked ttu">
+          
+        Posts
+      </aside>
+      
+
+
+
+
+
+
+
+
+
+
+  <div id="sharing" class="mt3 ananke-socials">
+    
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">OpenVPN &#43; Linode = Selfhosted VPN</h1>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2024-03-31T14:25:24+05:30">March 31, 2024</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><p>Creating a selfhosted VPN is actually quite easy, at least with linode (not
+sponsored). I will try to summarize how I selfhosted a VPN, and the problems I
+faced.</p>
+<h2 id="server-setup">Server Setup</h2>
+<p>I used a <a href="https://www.youtube.com/watch?v=HPKgzup2fco">Linode Video</a> to get started. I will go skim through the steps regardless.</p>
+<ul>
+<li>click on &ldquo;Create a Linode&rdquo; (or something, I forgot)</li>
+<li>From the marketplace select OpenVPN</li>
+<li>Fill in necessary fields</li>
+<li>Choose the OS and type of server you want, I chose a Nanode(the cheapest one).</li>
+</ul>
+<p>Once the Linode is created and initialized, the openVPN Access Server can be
+accessed using the ip address of the created VM. In the browser you have type</p>
+<p><code>https://YOUR_LINODE_IP:943/admin</code></p>
+<p>This is to connect to the OpenVPN server as
+admin.
+This link will not open in a &ldquo;incognito&rdquo;/&ldquo;private&rdquo; tab.</p>
+<p>Here I faced my first problem. I found out the admin OpenVPN Access Server
+username is different from the one I entered during the creation of the Server,
+and openVPN doesn&rsquo;t even ask for your password. The default username is
+&ldquo;openvpn&rdquo; and the password is in your server. Ssh into your server by copying
+the &ldquo;SSH Access&rdquo; link.</p>
+<p>Now since you have access to your server on the terminal, you have to find the
+<code>stackscript.log</code> file on the server. I simply did</p>
+<p><code>cat /var/log/stackscript.log  | grep -i password</code></p>
+<blockquote>
+<p>NOTE: for older versions of openvpn, you just do</p>
+<p><code>passwd openvpn</code></p>
+<p>to change
+the password. I am not sure if this works on the latest versions.</p>
+</blockquote>
+<p>This might be different for you depending on the OS, I have the Ubutu 22.04 LTS.</p>
+<p>Once logged in as admin, you have to go to &ldquo;User Management&rdquo; &gt; &ldquo;User
+Permissions&rdquo; and add a new user. This is for the user to connect to this
+openVPN server. Set a username and password, with all other default settings.</p>
+<p><strong>The server setup is complete at this point.</strong> Next we just have to setup the
+clients.</p>
+<p>Now you can type</p>
+<p><code>https://YOUR_LINODE_IP:943/?src=connect</code></p>
+<p>to go to user login, this is different from admin login. Use the username and
+password created to login. These are a bunch of options for the clients
+depending on OS.</p>
+<h2 id="setting-up-the-client">Setting up the client</h2>
+<p>This part is important for using the VPN on your devices. I will only cover
+linux (Linux Mint) and Android here because these are the ones I have setup.</p>
+<h4 id="android">Android</h4>
+<p>First Install the application for OpenVPN; either &ldquo;OpenVPN Access&rdquo; or &ldquo;OpenVPN
+for android&rdquo;. OpenVPN mentions &ldquo;OpenVPN for android&rdquo; as the application for
+&ldquo;Advanced&rdquo; users, The setup is simple for both.</p>
+<p>From the user login in your browser download the &ldquo;Connection Profile&rdquo; just
+below the OS options given. Once you have the <code>.ovpn</code> Connection Profile file
+on your phone just click it. It will call an intent for the app you have
+installed, just click the OpenVPN app and add the profile. I have tried this on
+2 phones with 2 different apps, and it worked without much hassle.</p>
+<h4 id="linux">Linux</h4>
+<p>For Linux Mint you can use the <code>openvpn</code> CLI tool. Similar to the android
+setup. You need the &ldquo;Connection Profile&rdquo; file from the user login.</p>
+<ul>
+<li>For &ldquo;auto-login&rdquo; Use</li>
+</ul>
+<p><code>openvpn --config YOUR_CONNECTION_PROFILE.ovpn</code></p>
+<ul>
+<li>For &ldquo;user-locked&rdquo; Use</li>
+</ul>
+<p><code>openvpn --config YOUR_CONNECTION_PROFILE.ovpn --auth-user-pass</code></p>
+<p>There is <a href="https://openvpn.net/vpn-server-resources/connecting-to-access-server-with-linux/">further
+setup</a>
+in linux for setting up the whole thing. But, with this you can start using
+your vpn on your system.</p>
+<p>It would be preferrable to have <code>openvpn3</code> which is mentioned in the setup.
+But, I was unable to have it setup in my &ldquo;Linux Mint Ulyana&rdquo; Laptop. I might
+update this part if I figure something out.</p>
+<p>That&rsquo;s all.</p>
+<hr>
+<hr>
+<p>As you might have noticed I am using Linode to create a selfhosted VPN. This is
+because as soon as I hosted this blog on Digital Ocean, I tried to Login to
+Linode. It seems they don&rsquo;t have a habit of sending
+confirmation/acknowledgement emails or anything. But, I didn&rsquo;t get the free
+credits for some reason. So, It didn&rsquo;t matter where I hosted this blog.</p>
+<p>Anyways I want to make the blogs better with some images and gifs. I also want
+to change the theme for this blog, because currently it is super bland and
+basic looking. I used the default theme provided by hugo. This might change
+in few weeks.</p>
+<ul class="pa0">
+  
+   <li class="list di">
+     <a href="/tags/journal/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Journal</a>
+   </li>
+  
+   <li class="list di">
+     <a href="/tags/vpn/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Vpn</a>
+   </li>
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+  <div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+    <p class="f5 b mb3">Related</p>
+    <ul class="pa0 list">
+	   
+	     <li  class="mb2">
+          <a href="/posts/choosing-hosting-service/">Choosing Hosting Service</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/hugo-blog-setup/">Setup for this Blog</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/posts/my-first-post/">Hello World</a>
+        </li>
+	    
+    </ul>
+</div>
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="/" >
+    &copy;  Ashish Nambiar's Blog 2024 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>
