@@ -1,9 +1,11 @@
 +++
 title = 'Wiggly Text in Flutter'
 date = 2024-04-07T11:28:56+05:30
-draft = true
+draft = false
 tags = ['flutter', 'article']
 +++
+
+![waves!](/waves.gif)
 
 In Flutter, it is possible to create some exciting animations quite simply. It
 might seem slightly roundabout initially, but it is intuitive once you
@@ -35,7 +37,7 @@ Wiggly Text.
 
 Before we begin, let's see what the result is going to look like.
 
-![hovering](/hovering-text.gif)
+![hovering](/wiggly-text.gif)
 
 For this experiment, we need a couple of ingredients:
 - AnimationController (for driving the animation)
@@ -169,6 +171,7 @@ The only thing left is to refactor this code to make it usable as a standalone w
 - `waveHeight`
 - `waveLength`
 - `duration` (of animation)
+
 >Note: The waveLength here is sort of counter-intuitive, but is named for
 >convenience' sake.
 
@@ -176,14 +179,49 @@ The final code is available in the
 [dartpad](https://dartpad.dev/?id=a21bdde0dbec4230e2441ef95afb0981)
 
 ---
-Since we have access to AnimationController's value, we can use this to create
-some interesting things. For example, we can get a rainbow effect with just a
-few iterations of this code. I will be creating a second part that will expand
-on this with a few more things.
 
-PS: If you didn't understand the mathematics part, it's not your fault it's
-mine.
+## Going Beyond
+
+#### Color Change
+
+Looks Like we have achieved what we wanted, but this is capable of much more.
+
+I can change the color depending on the value of the `controller.value`, that
+has the radians offset by a small amount.
+
+![wiggly color text](/wiggly-color.gif)
+
+#### Font Variations
+
+Instead of colors we can use [variable
+fonts](https://fonts.google.com/knowledge/introducing_type/introducing_variable_fonts)
+and the
+[`fontVariations`](https://api.flutter.dev/flutter/painting/TextStyle/fontFeatures.html)
+parameter to get some really funky animations. I have used [Roboto
+Flex](https://fonts.google.com/specimen/Roboto+Flex/tester) which has many
+different Axes available to play with. I choose a couple of Axes and animated
+them.
+
+![wobbly font variations](/font-feature.gif)
+
+> #### !! **WARNING** !!
+>
+> This is purely experimental! There is **HUGE** performance penalty when
+> animating `fontVariations` because the text layout hogs CPU cycles and is
+> **NOT RECOMMENDED AT ALL** in a production app.
+> ![performance](/performance.png) This is running on *MacBook Air M1*. I am
+> not brave enough to run it on an Android device.
+
+If we want we can combine all of these into one and have something crazy.
+![wiggly combined text](/wiggly-combined.gif)
+
+This was relatively simple to implement. 
+
+The `fontVariations` require variable fonts to be imported, so this will not
+work on a dartpad. So, the updated source code is available on [my
+github](https://github.com/ashishnambiar/Wiggly-Text).
 
 ---
 ---
-SEE YA! BYE!
+
+**SEE YA! BYE!**

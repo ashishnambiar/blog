@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Wiggly Text in Flutter | Ashish Nambiar&#39;s Blog</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="In Flutter, it is possible to create some exciting animations quite simply. It might seem slightly roundabout initially, but it is intuitive once you understand what is happening. For example, if you need a fade animation, you can use FadeTransition to create this. You need to have an AnimationController and a CurvedAnimation to build it inside a StatefulWidget with the SingleTickerProviderStateMixin for it to work, but once it is set up it is extendable.">
+    <meta name="generator" content="Hugo 0.124.1">
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+    
+
+    
+      
+
+    
+
+    
+
+    
+      <link rel="canonical" href="/posts/wiggly-text-in-flutter/">
+    
+
+    <meta property="og:title" content="Wiggly Text in Flutter" />
+<meta property="og:description" content="In Flutter, it is possible to create some exciting animations quite simply. It might seem slightly roundabout initially, but it is intuitive once you understand what is happening. For example, if you need a fade animation, you can use FadeTransition to create this. You need to have an AnimationController and a CurvedAnimation to build it inside a StatefulWidget with the SingleTickerProviderStateMixin for it to work, but once it is set up it is extendable." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/posts/wiggly-text-in-flutter/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-04-07T11:28:56+05:30" />
+<meta property="article:modified_time" content="2024-04-07T11:28:56+05:30" />
+<meta itemprop="name" content="Wiggly Text in Flutter">
+<meta itemprop="description" content="In Flutter, it is possible to create some exciting animations quite simply. It might seem slightly roundabout initially, but it is intuitive once you understand what is happening. For example, if you need a fade animation, you can use FadeTransition to create this. You need to have an AnimationController and a CurvedAnimation to build it inside a StatefulWidget with the SingleTickerProviderStateMixin for it to work, but once it is set up it is extendable."><meta itemprop="datePublished" content="2024-04-07T11:28:56+05:30" />
+<meta itemprop="dateModified" content="2024-04-07T11:28:56+05:30" />
+<meta itemprop="wordCount" content="985">
+<meta itemprop="keywords" content="flutter,article," /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Wiggly Text in Flutter"/>
+<meta name="twitter:description" content="In Flutter, it is possible to create some exciting animations quite simply. It might seem slightly roundabout initially, but it is intuitive once you understand what is happening. For example, if you need a fade animation, you can use FadeTransition to create this. You need to have an AnimationController and a CurvedAnimation to build it inside a StatefulWidget with the SingleTickerProviderStateMixin for it to work, but once it is set up it is extendable."/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        Ashish Nambiar&#39;s Blog
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+<div class="ananke-socials">
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked ttu">
+          
+        Posts
+      </aside>
+      
+
+
+
+
+
+
+
+
+
+
+  <div id="sharing" class="mt3 ananke-socials">
+    
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">Wiggly Text in Flutter</h1>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2024-04-07T11:28:56+05:30">April 7, 2024</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><p><img src="/waves.gif" alt="waves!"></p>
+<p>In Flutter, it is possible to create some exciting animations quite simply. It
+might seem slightly roundabout initially, but it is intuitive once you
+understand what is happening. For example, if you need a fade animation, you can
+use
+<a href="https://api.flutter.dev/flutter/widgets/SlideTransition-class.html"><code>FadeTransition</code></a>
+to create this. You need to have an AnimationController and a CurvedAnimation
+to build it inside a StatefulWidget with the SingleTickerProviderStateMixin
+for it to work, but once it is set up it is extendable. By using the same
+AnimationController used for the fade animation, you can easily create a
+slide animation using
+<a href="https://api.flutter.dev/flutter/widgets/FadeTransition-class.html"><code>SlideTransition</code></a>.</p>
+<p>Since Flutter is capable of more, I am going to do a small experiment using
+only an AnimationController to create some Wiggly Text.</p>
+<h2 id="tldr">TL;DR</h2>
+<p>You can check the final code (subject to change) on this dartpad I created.</p>
+<p><a href="https://dartpad.dev/?id=a21bdde0dbec4230e2441ef95afb0981">https://dartpad.dev/?id=a21bdde0dbec4230e2441ef95afb0981</a></p>
+<p>There are 2 sliders for &ldquo;waveLength&rdquo; and &ldquo;waveHeight&rdquo; and a text field that you
+can use to make any of your text wiggly.</p>
+<p>Since Flutter is capable of more, we are going to be using it to create some
+Wiggly Text.</p>
+<h2 id="lets-begin">Let&rsquo;s Begin</h2>
+<p>Before we begin, let&rsquo;s see what the result is going to look like.</p>
+<p><img src="/wiggly-text.gif" alt="hovering"></p>
+<p>For this experiment, we need a couple of ingredients:</p>
+<ul>
+<li>AnimationController (for driving the animation)</li>
+<li>AnimatedBuilder (for listening to the controller)</li>
+<li>RichText (For the wiggly text)</li>
+<li>A little bit of trigonometry (just one sine function)</li>
+</ul>
+<p>The first 2 ingredients are enough to create a lot of different kinds of
+animation.</p>
+<h2 id="creating-the-animation">Creating the animation</h2>
+<p>First we needed to create a smooth up-and-down animation. So, we create a
+<code>StatefulWidget</code> with <code>SingleTickerProviderStateMixin</code> as the base for our widget.</p>
+<pre tabindex="0"><code>class WigglyText extends StatefulWidget {
+  WigglyText({super.key});
+
+  @override
+  State&lt;WigglyText&gt; createState() =&gt; _WigglyTextState();
+}
+
+class _WigglyTextState extends State&lt;WigglyText&gt;
+    with SingleTickerProviderStateMixin {
+
+  @override
+  Widget build(BuildContext context) {
+    // [your animated widget here]
+  }
+}
+</code></pre><p>Once We have this, we need to create an AnimationController that will control
+the animations.</p>
+<pre tabindex="0"><code>late AnimationController controller = AnimationController(
+    vsync: this,
+    lowerBound: 0,
+    upperBound: pi * 2,
+    duration: const Duration(seconds: 2),
+)..repeat();
+</code></pre><p>Here we can see the bounds for the animation go from 0 to pi * 2. We need pi  2
+so that the value goes in a full circle which will also repeat indefinitely.
+What this allows us to do is to pass the value of the controller (using
+controller.value) and pass it to a sine function which will then keep the
+values between -1 and 1, and interpolate smoothly. For now, we can test out
+this animation using an AnimatedBuilder.</p>
+<pre tabindex="0"><code>@override
+Widget build(BuildContext context) {
+  return AnimatedBuilder(
+    animation: controller,
+    builder: (context, _) {
+      return Transform.translate(
+        offset: Offset(
+          0,
+          sin(controller.value) * 10,
+        ),
+        child: Text(widget.text),
+      );
+    },
+  );
+}
+</code></pre><p>In the above code, I have used AnimatedBuilder to listen to changes in the
+AnimationController and rebuilds the widget in the builder callback. Using the
+sine of the value for the offset will ease in and out from the values of -1 and
+1, so multiplying this value by 10 would change the range from -10 to 10, i.e,
+Offset(0, -10) to Offset(0, 10).</p>
+<p>Now we have a bobbing animation for the text. We want to do this for each of
+the letters, which is simple.</p>
+<p>A String is a List of characters, so we can get the length to iterate through
+it and give the animation for each letter. So, inside the <code>AnimatedBuilder</code>, we
+will just restructure the widget in such a way we can use <code>RichText</code> with
+<code>WidgetSpan</code> for each letter.</p>
+<pre tabindex="0"><code>return RichText(
+  text: TextSpan(
+    children: [
+      ...List.generate(
+        widget.text.length,
+        (index) {
+          final offset = sin(controller.value) * 10;
+          return WidgetSpan(
+            child: Transform.translate(
+              offset: Offset(
+                0,
+                offset,
+              ),
+              child: Text(widget.text[index]),
+            ),
+          );
+        },
+      ),
+    ],
+  ),
+);
+</code></pre><p><strong>OOPS!</strong> But there is a problem with the above code. the <code>offset</code> the variable
+is wrong because it will remain the same for all the values in the list of
+<code>WidgetSpan</code>s.</p>
+<p>To fix this, we need to change the <code>offset</code> value to have different values for
+each index. This is the benefit of having a trigonometric function here. Since
+we can pass any value to the sine function it will map the value to the angle
+on a circle, since the angle goes only from 0 to 2*pi radians (0 to 360
+degrees). You can check how this works
+<a href="https://www.mathsisfun.com/sine-cosine-tangent.html">here</a>.</p>
+<p>We will use this knowledge to give a slightly decrementing value for each index
+in the list, in such a way that it is trailing behind the current value.</p>
+<pre tabindex="0"><code>final offset = sin(controller.value - (.3 * index)) * 10;
+</code></pre><p>This will give us the result we need.</p>
+<p>The only thing left is to refactor this code to make it usable as a standalone widget. The variables we need to convert are:</p>
+<ul>
+<li><code>text</code></li>
+<li><code>waveHeight</code></li>
+<li><code>waveLength</code></li>
+<li><code>duration</code> (of animation)</li>
+</ul>
+<blockquote>
+<p>Note: The waveLength here is sort of counter-intuitive, but is named for
+convenience&rsquo; sake.</p>
+</blockquote>
+<p>The final code is available in the
+<a href="https://dartpad.dev/?id=a21bdde0dbec4230e2441ef95afb0981">dartpad</a></p>
+<hr>
+<h2 id="going-beyond">Going Beyond</h2>
+<h4 id="color-change">Color Change</h4>
+<p>Looks Like we have achieved what we wanted, but this is capable of much more.</p>
+<p>I can change the color depending on the value of the <code>controller.value</code>, that
+has the radians offset by a small amount.</p>
+<p><img src="/wiggly-color.gif" alt="wiggly color text"></p>
+<h4 id="font-variations">Font Variations</h4>
+<p>Instead of colors we can use <a href="https://fonts.google.com/knowledge/introducing_type/introducing_variable_fonts">variable
+fonts</a>
+and the
+<a href="https://api.flutter.dev/flutter/painting/TextStyle/fontFeatures.html"><code>fontVariations</code></a>
+parameter to get some really funky animations. I have used <a href="https://fonts.google.com/specimen/Roboto+Flex/tester">Roboto
+Flex</a> which has many
+different Axes available to play with. I choose a couple of Axes and animated
+them.</p>
+<p><img src="/font-feature.gif" alt="wobbly font variations"></p>
+<blockquote>
+<h4 id="-warning-">!! <strong>WARNING</strong> !!</h4>
+<p>This is purely experimental! There is <strong>HUGE</strong> performance penalty when
+animating <code>fontVariations</code> because the text layout hogs CPU cycles and is
+<strong>NOT RECOMMENDED AT ALL</strong> in a production app.
+<img src="/performance.png" alt="performance"> This is running on <em>MacBook Air M1</em>. I am
+not brave enough to run it on an Android device.</p>
+</blockquote>
+<p>If we want we can combine all of these into one and have something crazy.
+<img src="/wiggly-combined.gif" alt="wiggly combined text"></p>
+<p>This was relatively simple to implement.</p>
+<p>The <code>fontVariations</code> require variable fonts to be imported, so this will not
+work on a dartpad. So, the updated source code is available on <a href="https://github.com/ashishnambiar/Wiggly-Text">my
+github</a>.</p>
+<hr>
+<hr>
+<p><strong>SEE YA! BYE!</strong></p>
+<ul class="pa0">
+  
+   <li class="list di">
+     <a href="/tags/flutter/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Flutter</a>
+   </li>
+  
+   <li class="list di">
+     <a href="/tags/article/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Article</a>
+   </li>
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="/" >
+    &copy;  Ashish Nambiar's Blog 2024 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

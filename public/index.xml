@@ -6,8 +6,15 @@
     <description>Recent content on Ashish Nambiar&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 31 Mar 2024 14:25:24 +0530</lastBuildDate>
+    <lastBuildDate>Sun, 07 Apr 2024 11:28:56 +0530</lastBuildDate>
     <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Wiggly Text in Flutter</title>
+      <link>/posts/wiggly-text-in-flutter/</link>
+      <pubDate>Sun, 07 Apr 2024 11:28:56 +0530</pubDate>
+      <guid>/posts/wiggly-text-in-flutter/</guid>
+      <description>In Flutter, it is possible to create some exciting animations quite simply. It might seem slightly roundabout initially, but it is intuitive once you understand what is happening. For example, if you need a fade animation, you can use FadeTransition to create this. You need to have an AnimationController and a CurvedAnimation to build it inside a StatefulWidget with the SingleTickerProviderStateMixin for it to work, but once it is set up it is extendable.</description>
+    </item>
     <item>
       <title>OpenVPN &#43; Linode = Selfhosted VPN</title>
       <link>/posts/selfhosted-vpn-using-linode-openvpn/</link>
